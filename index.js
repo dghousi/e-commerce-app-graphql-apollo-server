@@ -12,6 +12,7 @@ const typeDefs = gql`
     name: String!
     description: String!
     quantity: Int!
+    image: String!
     price: Float!
     onSale: Boolean
   }
