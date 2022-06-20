@@ -4,7 +4,6 @@ const productsData = require('./products')
 
 const typeDefs = gql`
   type Query {
-    hello: String!
     products: [Product!]!
     product(id: ID!): Product
   }
@@ -21,13 +20,10 @@ const typeDefs = gql`
 `
 const resolvers = {
   Query: {
-    hello: () => {
-      return 'Hello World!'
-    },
     products: () => {
       return productsData.products
     },
-    product: (parent, args, context) => {
+    product: (_parent, args, _context) => {
       return productsData.products.find(product => product.id === args.id)
     },
   },
