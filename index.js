@@ -1,26 +1,29 @@
 const {ApolloServer, gql} = require('apollo-server')
 
+const productsData = require('./products')
+
 const typeDefs = gql`
   type Query {
-    hello: String
-    numberOfBooks: Int
-    price: Float
-    isCool: Boolean
+    hello: String!
+    products: [Product!]!
+  }
+
+  type Product {
+    name: String!
+    description: String!
+    quantity: Int!
+    price: Float!
+    onSale: Boolean
   }
 `
-
 const resolvers = {
   Query: {
     hello: () => {
-      return 'World!'
+      return 'Hello World!'
     },
-    numberOfBooks: () => {
-      return 55
+    products: () => {
+      return productsData.products
     },
-    price: () => {
-      return 10.1
-    },
-    isCool: () => false,
   },
 }
 
