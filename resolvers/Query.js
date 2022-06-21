@@ -1,17 +1,14 @@
-const {products} = require('./../products')
-const {categories} = require('./../categories')
-
 exports.Query = {
-  products: () => {
-    return products
+  products: (parent, args, context) => {
+    return context.products
   },
-  product: (_parent, args, _context) => {
-    return products.find(product => product.id === args.id)
+  product: (parent, args, context) => {
+    return context.products.find(product => product.id === args.id)
   },
   categories: () => {
-    return categories
+    return context.categories
   },
-  category: (_parent, args, _context) => {
-    return categories.find(category => category.id === args.id)
+  category: (parent, args, context) => {
+    return context.categories.find(category => category.id === args.id)
   },
 }
