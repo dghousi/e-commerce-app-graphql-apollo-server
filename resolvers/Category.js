@@ -1,6 +1,5 @@
-const {products} = require('./../products')
 exports.Category = {
-  products: (parent, args, _context) => {
-    return products.filter(product => product.categoryId === parent.id)
+  products: (parent, args, context) => {
+    return context.products.filter(product => product.categoryId === parent.id)
   },
 }
