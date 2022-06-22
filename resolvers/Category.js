@@ -1,5 +1,5 @@
 exports.Category = {
-  products: (parent, args, context) => {
-    return context.products.filter(product => product.categoryId === parent.id)
+  products: ({id}, args, {products}) => {
+    return products.filter(product => product.categoryId === id)
   },
 }

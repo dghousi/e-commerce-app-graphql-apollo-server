@@ -1,14 +1,14 @@
 exports.Query = {
-  products: (parent, args, context) => {
-    return context.products
+  products: (parent, args, {products}) => {
+    return products
   },
-  product: (parent, args, context) => {
-    return context.products.find(product => product.id === args.id)
+  product: (parent, {id}, {products}) => {
+    return products.find(product => product.id === id)
   },
-  categories: () => {
-    return context.categories
+  categories: (parent, args, {categories}) => {
+    return categories
   },
-  category: (parent, args, context) => {
-    return context.categories.find(category => category.id === args.id)
+  category: (parent, {id}, {categories}) => {
+    return categories.find(category => category.id === id)
   },
 }
