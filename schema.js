@@ -5,6 +5,9 @@ exports.typeDefs = gql`
     product(id: ID!): Product
     categories: [Category!]!
     category(id: ID!): Category
+    reviews: [Review!]!
+    review(id: ID!): Review
+
   }
 
   type Product {
@@ -16,11 +19,21 @@ exports.typeDefs = gql`
     price: Float!
     onSale: Boolean
     category: Category
+    review: Review
   }
 
   type Category {
     id: ID!
     name: String!
     products: [Product!]!
+  }
+
+  type Review {
+    id: ID!
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!
+    product: Product
   }
 `
